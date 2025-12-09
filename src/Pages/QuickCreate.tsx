@@ -16,6 +16,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { setReviewer } from "@/redux/reviewer";
 
 const QuickCreate = () => {
   const dispatch = useAppDispatch();
@@ -27,6 +28,7 @@ const QuickCreate = () => {
     dispatch(setDescription(""));
     dispatch(setCategory(""));
     dispatch(setIsPublished(false));
+    dispatch(setReviewer(""));
     // TODO: call API or perform further actions
   };
 
@@ -58,7 +60,7 @@ const QuickCreate = () => {
             onValueChange={(value) => dispatch(setCategory(value))}
           >
             <SelectTrigger className="w-full my-2">
-              <SelectValue placeholder="Select category"  />
+              <SelectValue placeholder="Select category" />
             </SelectTrigger>
 
             <SelectContent>
@@ -69,7 +71,7 @@ const QuickCreate = () => {
               <SelectItem value="Vladimir Putin">Vladimir Putin</SelectItem>
             </SelectContent>
           </Select>
-        
+
           {/* Optional: Checkbox for isPublished */}
           <div className="items-center space-x-2 hidden">
             <Input
